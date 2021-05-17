@@ -8,9 +8,9 @@ const server = http.createServer((request, response) => {
     const queryData = url.parse(request.url, true).query;
     response.writeHead(200, {"Content-Type": "text/html"});
     if (queryData.name){
-        response.end("Salut test " + queryData.name);
+        response.end("Salut" + queryData.name);
     } else {
-        response.end("Quel est votre nom ?");
+        response.end("Quel est votre nom Mr ?");
     }
     
 });

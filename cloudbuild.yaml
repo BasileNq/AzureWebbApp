@@ -8,18 +8,18 @@ steps:
 #     - 'submit'
 #     - '--config' 
     # - 'cloudbuild.yaml'
-# - name: 'gcr.io/cloud-builders/cloudsdktool/cloud-sdk'
-#   entrypoint: gcloud
-#   args:  
-#   - 'run'
-#   - 'deploy'
-#   - 'cloudrunservice'
-#   - '--image'
-#   - 'europe-west1-docker.pkg.dev/$PROJECT_ID/web-app-repo:$COMMIT_SHA'
-#   - '--region'
-#   - 'europe-west1'
-#   - '--platform'
-#   - 'managed'
-#   - '--allow-unauthenticated'
+- name: 'gcr.io/cloud-builders/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args:  
+  - 'run'
+  - 'deploy'
+  - 'cloudrunservice'
+  - '--image'
+  - 'europe-west1-docker.pkg.dev/$PROJECT_ID/web-app-repo/webapp-image:$COMMIT_SHA'
+  - '--region'
+  - 'europe-west1'
+  - '--platform'
+  - 'managed'
+  - '--allow-unauthenticated'
 images:
 - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_SHA'

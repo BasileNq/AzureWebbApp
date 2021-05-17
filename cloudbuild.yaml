@@ -9,7 +9,7 @@ steps:
 #     - '--config' 
 #     - './cloudbuild.yaml'
 - name: 'gcr.io/cloud-builders/docker'
-   args: ['push', 'europe-west1-docker.pkg.dev/$PROJECT_ID/cicd-test:$COMMIT_SHA']
+   args: ['push', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/cicd-test:$COMMIT_SHA']
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
    entrypoint: gcloud
   args:  

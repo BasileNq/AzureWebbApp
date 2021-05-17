@@ -9,6 +9,7 @@ steps:
     - '--config' 
     - 'cloudbuild.yaml'
 - name: 'gcr.io/cloud-builders/docker'
+  entrypoint: gcloud
   args:  
   - 'run'
   - 'deploy'

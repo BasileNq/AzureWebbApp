@@ -8,8 +8,7 @@ steps:
 #     - 'submit'
 #     - '--config' 
     # - 'cloudbuild.yaml'
-- name: 'gcr.io/cloud-builders/cloudsdktool/cloud-sdk'
-  entrypoint: gcloud
+- name: 'gcr.io/cloud-builders/gcloud'
   args:  
   - 'run'
   - 'deploy'

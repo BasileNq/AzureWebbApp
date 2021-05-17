@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_SHA', '.' ]  
+  args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:v1', '.' ]  
 # - name: 'gcr.io/cloud-builders/docker'
 #   args:
 #     - 'gcloud'
@@ -14,11 +14,11 @@ steps:
   - 'deploy'
   - 'cloudrunservice'
   - '--image'
-  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_SHA'
+  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:v1'
   - '--region'
   - 'europe-west1'
   - '--platform'
   - 'managed'
   - '--allow-unauthenticated'
 images:
-- 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_SHA'
+- 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:v1'

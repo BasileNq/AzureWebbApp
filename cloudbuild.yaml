@@ -8,7 +8,7 @@ steps:
     - 'submit'
     - '--config' 
     - 'cloudbuild.yaml'
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/cloud-builders/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
   args:  
   - 'run'

@@ -1,13 +1,13 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:v1', '.' ]  
-- name: 'gcr.io/cloud-builders/docker'
-  args:
-    - 'gcloud'
-    - 'builds'
-    - 'submit'
-    - '--config' 
-    - 'cloudbuild.yaml'
+# - name: 'gcr.io/cloud-builders/docker'
+#   args:
+#     - 'gcloud'
+#     - 'builds'
+#     - 'submit'
+#     - '--config' 
+#     - 'cloudbuild.yaml'
 - name: 'gcr.io/cloud-builders/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
   args:  

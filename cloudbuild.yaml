@@ -15,7 +15,7 @@ steps:
   - 'deploy'
   - 'cloudrunservice'
   - '--image'
-  - 'europe-west1-docker.pkg.dev/$PROJECT_ID/web-app-repo/webapp-image:$COMMIT_SHA'
+  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_SHA'
   - '--region'
   - 'europe-west1'
   - '--platform'

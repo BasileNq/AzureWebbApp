@@ -6,7 +6,7 @@ steps:
     # - |
     # - docker pull europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image || exit 0
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image', '.' ]  
+  args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:latest', '.' ]  
 # - name: 'gcr.io/cloud-builders/docker'
 #   args:
 #     # - 'gcloud'
@@ -23,7 +23,7 @@ steps:
   - 'deploy'
   - 'cloudrunservice'
   - '--image'
-  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image'
+  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:latest'
   - '--region'
   - 'europe-west1'
   - '--platform'

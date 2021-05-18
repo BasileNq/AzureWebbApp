@@ -6,7 +6,7 @@ steps:
     - |
     - docker pull europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:latest || exit 0
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image', '.' ]  
+  args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_SHA', '.' ]  
 # - name: 'gcr.io/cloud-builders/docker'
 #   args:
 #     # - 'gcloud'

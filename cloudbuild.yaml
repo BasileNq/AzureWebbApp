@@ -1,6 +1,12 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/cicd-test:$COMMIT_SHA', '.' ]  
+  entrypoint: 'bash'
+  args:
+    - '-c'
+    - |
+    docker pull europe-west1-docker.pkg.dev/tegola-api-cloud-run/cicd-test:latest || exit 0
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/cicd-test', '.' ]  
 # - name: 'gcr.io/cloud-builders/docker'
 #   args:
 #     # - 'gcloud'
@@ -9,19 +15,19 @@ steps:
 #     - '--config' 
 #     - './cloudbuild.yaml'
 - name: 'gcr.io/cloud-builders/docker'
-   args: ['push', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/cicd-test:$COMMIT_SHA']
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+   args: ['push', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/cicd-test']
+- name: 'gcr.io/cloud-builders/gloud'
    entrypoint: gcloud
   args:  
   - 'run'
   - 'deploy'
   - 'cloudrunservice'
   - '--image'
-  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/cicd-test:$COMMIT_SHA'
+  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/cicd-test:latest'
   - '--region'
   - 'europe-west1'
   - '--platform'
   - 'managed'
   - '--allow-unauthenticated'
 images:
-- 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/cicd-test:$COMMIT_SHA'
+- 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/cicd-test'

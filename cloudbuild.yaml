@@ -15,7 +15,7 @@ steps:
 #     - '--config' 
 #     - './cloudbuild.yaml'
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image']
+  args: ['push', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_HASH']
 - name: 'gcr.io/cloud-builders/gloud'
   entrypoint: gcloud
   args:  
@@ -23,7 +23,7 @@ steps:
   - 'deploy'
   - 'cloudrunservice'
   - '--image'
-  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image'
+  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_HASH'
   - '--region'
   - 'europe-west1'
   - '--platform'

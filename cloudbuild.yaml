@@ -15,7 +15,7 @@ steps:
 #     - '--config' 
 #     - './cloudbuild.yaml'
 - name: 'gcr.io/cloud-builders/docker'
-   args: ['push', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/cicd-test']
+  args: ['push', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/cicd-test']
 - name: 'gcr.io/cloud-builders/gloud'
    entrypoint: gcloud
   args:  

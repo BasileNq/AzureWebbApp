@@ -10,7 +10,7 @@ const server = http.createServer((request, response) => {
     if (queryData.name){
         response.end("Salut" + queryData.name);
     } else {
-        response.end("Quel est votre nom Mr ?");
+        response.end("Quel est votre nom mon cher Mr ?");
     }
     
 });

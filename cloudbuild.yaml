@@ -8,9 +8,9 @@ steps:
   args:  
   - 'run'
   - 'deploy'
-  - 'cloudrunservice'
+  - 'cicd-test'
   - '--image'
-  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_SHA'
+  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image'
   - '--region'
   - 'europe-west1'
   - '--platform'

@@ -12,7 +12,7 @@ steps:
   - 'deploy'
   - 'cicd-test'
   - '--image'
-  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image'
+  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$SHORT_SHA'
   - '--region'
   - 'europe-west1'
   - '--platform'

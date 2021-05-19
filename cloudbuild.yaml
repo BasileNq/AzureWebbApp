@@ -10,11 +10,11 @@ steps:
   - 'deploy'
   - 'cicd-test'
   - '--image'
-  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image'
+  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:latest'
   - '--region'
   - 'europe-west1'
   - '--platform'
   - 'managed'
   - '--allow-unauthenticated'
 images:
-- 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image'
+- 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:latest'

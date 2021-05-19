@@ -1,21 +1,8 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  entrypoint: 'bash'
-  args:
-    - '-c'
-    - |
-    - docker pull europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:latest || exit 0
+  args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image', '.' ]  
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_SHA', '.' ]  
-# - name: 'gcr.io/cloud-builders/docker'
-#   args:
-#     # - 'gcloud'
-#     - 'builds'
-#     - 'submit'
-#     - '--config' 
-#     - './cloudbuild.yaml'
-- name: 'gcr.io/cloud-builders/gcloud'
-  args: ['builds', 'submit', '--config', '.']
+  args: ['push', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_SHA']
 - name: 'gcr.io/cloud-builders/gloud'
   entrypoint: gcloud
   args:  

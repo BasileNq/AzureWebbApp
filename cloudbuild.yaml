@@ -1,8 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_SHA', '.' ]  
+  id: Build
+  args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$SHORT_SHA', '.' ]  
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_SHA']
+  id: Push
+  args: ['push', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$SHORT_SHA']
 - name: 'gcr.io/cloud-builders/gloud'
   entrypoint: gcloud
   args:  
@@ -10,11 +12,11 @@ steps:
   - 'deploy'
   - 'cicd-test'
   - '--image'
-  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_SHA'
+  - 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image'
   - '--region'
   - 'europe-west1'
   - '--platform'
   - 'managed'
   - '--allow-unauthenticated'
 images:
-- 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_SHA'
+- 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image'

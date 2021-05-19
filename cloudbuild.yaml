@@ -5,7 +5,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   id: Push
   args: ['push', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$SHORT_SHA']
-- name: 'gcr.io/cloud-builders/gloud'
+- name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: gcloud
   args:  
   - 'run'

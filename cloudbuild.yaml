@@ -2,7 +2,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image', '.' ]  
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image]
+  args: ['push', 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image']
 - name: 'gcr.io/cloud-builders/gloud'
   entrypoint: gcloud
   args:  

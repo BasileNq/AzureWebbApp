@@ -17,4 +17,4 @@ steps:
   - 'managed'
   - '--allow-unauthenticated'
 images:
-- 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image'
+- 'europe-west1-docker.pkg.dev/tegola-api-cloud-run/web-app-repo/webapp-image:$COMMIT_SHA'
